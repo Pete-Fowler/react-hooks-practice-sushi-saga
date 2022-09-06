@@ -4,6 +4,9 @@ function Sushi({ name, imgUrl, price, made, purchase }) {
   const [ eaten, setEaten ] = useState(false);
 
   function handleEaten() {
+    if(eaten) {
+      return;
+    }
     purchase(price) && setEaten(eaten => true);
   }
 

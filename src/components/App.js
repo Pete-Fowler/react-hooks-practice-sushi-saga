@@ -28,6 +28,11 @@ function App() {
     return true;
   }
 
+  function addMoney(e, value) {
+    e.preventDefault();
+    setMoney(money => money + parseInt(value));
+  }
+
   const sushiShown = sushiList.filter(item => 
     (sushiList.indexOf(item) >= startIndex 
     && sushiList.indexOf(item) <= startIndex + 3));
@@ -35,7 +40,7 @@ function App() {
   return (
     <div className="app">
       <SushiContainer sushiShown={sushiShown} showMore={showMore} purchase={purchase}/>
-      <Table money={money}/>
+      <Table money={money} addMoney={addMoney}/>
     </div>
   );
 }
