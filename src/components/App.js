@@ -16,8 +16,8 @@ function App() {
   }, []);
 
   function showMore() {
-    startIndex >= 95 && setStartIndex(0);
-    setStartIndex(startIndex => startIndex + 4);
+    startIndex >= 95 ? setStartIndex(0) 
+    : setStartIndex(startIndex => startIndex + 4);
   }
 
   function purchase(price) {
@@ -31,7 +31,7 @@ function App() {
   const sushiShown = sushiList.filter(item => 
     (sushiList.indexOf(item) >= startIndex 
     && sushiList.indexOf(item) <= startIndex + 3));
-
+  
   return (
     <div className="app">
       <SushiContainer sushiShown={sushiShown} showMore={showMore} purchase={purchase}/>
