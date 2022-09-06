@@ -1,7 +1,6 @@
 import React from "react";
 
 function Sushi({ name, imgUrl, price, made }) {
-  console.log(name, imgUrl, price, made);
   
   return (
     <div className="sushi">

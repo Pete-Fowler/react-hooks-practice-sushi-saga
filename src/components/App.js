@@ -6,22 +6,26 @@ const API = "http://localhost:3001/sushis";
 
 function App() {
   const [ sushiList, setSushiList ] = useState([]);
-  
+  const [ startIndex, setStartIndex ] = useState(0);
+ 
   useEffect(() => {
     fetch('http://localhost:3001/sushis')
     .then(res => res.json())
     .then(data => setSushiList(data));
   }, []);
 
-  const startIndex = 0;
+  function showMore() {
+    startIndex >= 95 && setStartIndex(0);
+    setStartIndex(startIndex => startIndex + 4);
+  }
 
   const sushiShown = sushiList.filter(item => 
-    (sushiList.indexOf(item) >= 0 
+    (sushiList.indexOf(item) >= startIndex 
     && sushiList.indexOf(item) <= startIndex + 3));
 
   return (
     <div className="app">
-      <SushiContainer sushiShown={sushiShown}/>
+      <SushiContainer sushiShown={sushiShown} showMore={showMore}/>
       <Table />
     </div>
   );

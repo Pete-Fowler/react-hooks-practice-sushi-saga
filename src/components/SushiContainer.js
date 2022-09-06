@@ -2,7 +2,7 @@ import React from "react";
 import MoreButton from "./MoreButton";
 import Sushi from './Sushi';
 
-function SushiContainer({ sushiShown }) {
+function SushiContainer({ sushiShown, showMore }) {
   
   const sushi = sushiShown.map(item =>
     <Sushi 
@@ -16,7 +16,7 @@ function SushiContainer({ sushiShown }) {
   return (
     <div className="belt">
       {sushi}
-      <MoreButton />
+      <MoreButton showMore={showMore}/>
     </div>
   );
 }
