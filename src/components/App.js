@@ -21,7 +21,11 @@ function App() {
   }
 
   function purchase(price) {
+    if(money - price < 0) {
+      return false;
+    }
     setMoney(money => money - price);
+    return true;
   }
 
   const sushiShown = sushiList.filter(item => 
