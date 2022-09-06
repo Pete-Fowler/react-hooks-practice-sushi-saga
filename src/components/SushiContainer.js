@@ -2,7 +2,7 @@ import React from "react";
 import MoreButton from "./MoreButton";
 import Sushi from './Sushi';
 
-function SushiContainer({ sushiShown, showMore }) {
+function SushiContainer({ sushiShown, showMore, purchase }) {
   
   const sushi = sushiShown.map(item =>
     <Sushi 
@@ -11,6 +11,7 @@ function SushiContainer({ sushiShown, showMore }) {
       imgUrl={item.img_url} 
       price={item.price} 
       made={item.created_at}
+      purchase={purchase}
     />);
 
   return (
